@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo Algoritmo Front-end</title>
+</head>
+<body>
+    <input type="text" id="campoBusca" placeholder="Buscar linguagem..." oninput="filtrarLista()">
+
+    <ul id="listaItens">
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>React</li>
+    </ul>
+    <script>
+        function filtrarLista(){
+            let termoBusca = document.getElementById("campoBusca").value.toLowerCase();
+            let itens = document.getElementById("listaItens").getElementsByTagName("li");
+
+            for (let i = 0; i < itens.length; i++){
+                let textoItem = itens[i].textContent.toLowerCase();
+                if (textoItem.includes(termoBusca)){
+                    itens[i].style.display = "";
+                } else {
+                    itens[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
